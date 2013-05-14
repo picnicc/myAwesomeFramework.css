@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>picnicc - form sent using picnicc.form.js</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A simple picnicc example">
+        <meta name="author" content="Alex Duloz - http://bitspushedaround.com">
+        <link href="css/main.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h1>
+            myAwesomeFramework.css
+        </h1>
+        <p>
+            <a href="http://picnicc.github.io/myAwesomeFramework/demo/" title="Back to index">Back to index</a>
+        </p>
+        <p>
+            In this example, the form is sent to the <a href="https://picni.cc/api/v1#build-endpoint">Build Endpoint</a> of the API using <a href="https://picni.cc/picnicc-form-js">picnicc.form.js</a>. In its most basic usage, all you need to do is include <a href="https://github.com/picnicc/picnicc.js">picnicc.js</a> and invoke its <code>.init()</code> method.
+        </p>
+        <form name="picnicc" action="https://picni.cc/api/v1/build/" method="post">
+            <input type="hidden" name="username" value="picnicc"> 
+            <input type="hidden" name="project" value="myAwesomeFramework.css">
+            <input type="hidden" name="picnicc" value="https://raw.github.com/picnicc/myAwesomeFramework/gh-pages/picnicc.json">
+            <input type="hidden" name="minify" value="css">
+            <label>
+                <input type="checkbox" name="bits[]" value="{picnicc:section-1}">
+                Add <code>section-1</code> to your build
+            </label>
+            <label>
+                <input type="checkbox" name="bits[]" value="{picnicc:section-2}">
+                Add <code>section-2</code> to your build
+            </label>
+            <label>
+                <input type="checkbox" name="bits[]" value="{picnicc:section-3}">
+                Add <code>section-3</code> to your build
+            </label>
+            <button>Build it!</button>
+            <!-- Retrieve build -->
+            <p>
+                Your custom builds receive an "id" string. Copy it, paste it in the field below, and retrieve what you had previously checked (<a href="https://picni.cc/picnicc-form-js">read more</a>).
+            </p>
+            <label>
+                <input type="text" name="picnicc_build_id" value="">
+                Retrieve your cutomizations
+            </label>
+            <button id="picnicc_retrieve_build">Retrieve!</button>
+        </form>
+
+        <!-- Just for the sake of this demo, let's link directly to Github: -->
+        <script src="https://raw.github.com/picnicc/picnicc.js/gh-pages/picnicc.min.js"></script>
+        <script>
+            if (!picnicc) {
+                alert("Sorry, but picnicc couldn't be included. Please reload this page.");
+            }
+            picnicc.form.init();
+        </script>
+    </body>
+</html>

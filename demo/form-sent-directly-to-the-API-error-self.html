@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+    <head>
+        <meta charset="utf-8">
+        <title>picnicc - form sent directly to the API + error callback</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="description" content="A simple picnicc example">
+        <meta name="author" content="Alex Duloz - http://bitspushedaround.com">
+        <link href="css/main.css" rel="stylesheet" type="text/css">
+    </head>
+    <body>
+        <h1>
+            myAwesomeFramework.css
+        </h1>
+        <p>
+            <a href="http://picnicc.github.io/myAwesomeFramework/demo/" title="Back to index">Back to index</a>
+        </p>
+        <p>
+            In this example, the form is sent directly to the <a href="https://picni.cc/api/v1#build-endpoint">Build Endpoint</a> of the API. An error is purposefully triggered, and we ask pinicc to redirect to an error callback (this very page) in case of error. The error is attached to the query string (all you will see in this example is the query string change).
+        </p>
+        <form name="picnicc" action="https://picni.cc/api/v1/build/" method="post">
+            <input type="hidden" name="username" value="picnicc"> 
+            <!-- A project that doesn't exist -->
+            <input type="hidden" name="project" value="someBogusProject.css"> 
+            <input type="hidden" name="picnicc" value="https://raw.github.com/picnicc/myAwesomeFramework/gh-pages/picnicc.json">
+            <input type="hidden" name="minify" value="css">
+            <!-- Overrides the 200 default behavior -->
+            <input type="hidden" name="if_success" value="302"> 
+            <!-- Tells picnicc to redirect in case of error -->
+            <input type="hidden" name="if_error" value="http://picnicc.github.io/myAwesomeFramework/demo/form-sent-directly-to-the-API-error-self.html">
+            <label>
+                <input type="checkbox" name="bits[]" value="{picnicc:section-1}">
+                Add <code>section-1</code> to your build
+            </label>
+            <label>
+                <input type="checkbox" name="bits[]" value="{picnicc:section-2}">
+                Add <code>section-2</code> to your build
+            </label>
+            <label>
+                <input type="checkbox" name="bits[]" value="{picnicc:section-3}">
+                Add <code>section-3</code> to your build
+            </label>
+            <button>Build it!</button>
+        </form>
+    </body>
+</html>
