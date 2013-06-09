@@ -1,5 +1,5 @@
 {
-	"version" : "1.0.0",
+	"version" : "1.0.1",
 	"assets"  : ["https://raw.github.com/picnicc/myAwesomeFramework.css/gh-pages/myAwesomeFramework.css"],
-	"bits"    : ["{picnicc:section-1}", "{picnicc:section-2}", "{picnicc:section-3}"]
+	"bits"    : ["section-1", "section-2", "section-3"]
 }
