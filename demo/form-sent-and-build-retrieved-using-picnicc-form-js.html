@@ -70,7 +70,7 @@
                 alert("Here are the checkboxes that had been ticked");
                 alert("bits: " + response.bits.toString());
                 alert("click again and I will tick them back for you");
-                picnicc.form.checkboxify(response.bits);
+                picnicc.form.checkboxify("bits",response.bits);
 
             })
             .fail(function(error) {
